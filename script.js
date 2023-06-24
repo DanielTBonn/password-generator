@@ -47,7 +47,38 @@ function getCharacters() {
 // Generates password by passing in functions
 function generatePassword(len, charSet) {
   var password;
+  var passString = "";
   console.log(len, charSet);
+
+  var lowercase = "abcdefghijklmnopqrstuvwxyz";
+  var uppercase = lowercase.toUpperCase();
+  var numbers = "0123456789";
+  var specialChars = "";
+
+  if (charSet.includes("A")) {
+    passString += uppercase;
+  }
+
+  if (charSet.includes("a")) {
+    passString += lowercase;
+  }
+
+  if (charSet.includes(1)) {
+    passString += numbers;
+  }
+
+  if (charSet.includes("$")) {
+    passString += specialChars;
+  }
+
+  let passStrLen = passString.length;
+
+  for (var i = 0; i < len; i++) {
+    password += "";
+  }
+
+  console.log(passString);
+  console.log(passString[5]);
   return password;
 }
 
@@ -56,7 +87,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(getPasswordLength(), getCharacters());
+  var password = generatePassword(8, ["A", "a", 1, "$"]);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
