@@ -49,8 +49,6 @@ function getCharacters() {
 // Generates password by passing in functions
 function generatePassword(len, charSet) {
   var password;
-  const passLength = len;
-  const chars = charSet;
   console.log(len, charSet);
   return password;
 }
