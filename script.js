@@ -23,22 +23,22 @@ function getCharacters() {
 
   answer = window.prompt("Would you like to include uppercase characters? [y/n]", "");
   if (answer === 'y') {
-    chars.push('A')
+    chars.push('A');
   }
 
   answer = window.prompt("Would you like to include lowercase characters? [y/n]", "");
   if (answer === 'y') {
-    chars.push('a')
+    chars.push('a');
   }
 
   answer = window.prompt("Would you like to include numeric characters? [y/n]", "");
   if (answer === 'y') {
-    chars.push(1)
+    chars.push(1);
   }
 
   answer = window.prompt("Would you like to include special characters? [y/n]", "");
   if (answer === 'y') {
-    chars.push("$")
+    chars.push("$");
   }
 
   return chars;
