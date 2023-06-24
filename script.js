@@ -59,8 +59,7 @@ function generatePassword(len, charSet) {
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = lowercase.toUpperCase();
   var numbers = "0123456789";
-  var specialChars = "";
-
+  var specialChars = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
   if (charSet.includes("A")) {
     passString += uppercase;
   }
