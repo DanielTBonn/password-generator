@@ -52,7 +52,7 @@ function randomIndexGen(range) {
 
 // Generates password by passing in functions
 function generatePassword(len, charSet) {
-  var password;
+  var password = "";
   var passString = "";
   console.log(len, charSet);
 
@@ -76,16 +76,15 @@ function generatePassword(len, charSet) {
   if (charSet.includes("$")) {
     passString += specialChars;
   }
-
-  var index = randomIndexGen(passString.length);
-  console.log(passString.length, ": ",index);
-
+  
   for (var i = 0; i < len; i++) {
-    password += "";
+    var index = randomIndexGen(passString.length);
+    password += passString[index];
   }
 
   console.log(passString);
   console.log(passString[5]);
+  console.log(password)
   return password;
 }
 
