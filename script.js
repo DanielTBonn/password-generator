@@ -54,12 +54,12 @@ function randomIndexGen(range) {
 function generatePassword(len, charSet) {
   var password = "";
   var passString = "";
-  console.log(len, charSet);
 
   var lowercase = "abcdefghijklmnopqrstuvwxyz";
   var uppercase = lowercase.toUpperCase();
   var numbers = "0123456789";
   var specialChars = " !\"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~";
+
   if (charSet.includes("A")) {
     passString += uppercase;
   }
@@ -81,9 +81,6 @@ function generatePassword(len, charSet) {
     password += passString[index];
   }
 
-  console.log(passString);
-  console.log(passString[5]);
-  console.log(password)
   return password;
 }
 
@@ -92,7 +89,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(8, ["A", "a", 1, "$"]);
+  var password = generatePassword(getPasswordLength(), getCharacters());
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
