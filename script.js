@@ -21,7 +21,27 @@ function getPasswordLength() {
 
 // Character types may include lowercase, uppercase, numeric, and/or special characters
 function getCharacters() {
-  var chars = ['A', 'a', 1, '$']
+  var chars = [];
+
+  answer = window.prompt("Would you like to include uppercase characters? [y/n]", "");
+  if (answer === 'y') {
+    chars.push('A')
+  }
+
+  answer = window.prompt("Would you like to include lowercase characters? [y/n]", "");
+  if (answer === 'y') {
+    chars.push('a')
+  }
+
+  answer = window.prompt("Would you like to include numeric characters? [y/n]", "");
+  if (answer === 'y') {
+    chars.push(1)
+  }
+
+  answer = window.prompt("Would you like to include special characters? [y/n]", "");
+  if (answer === 'y') {
+    chars.push("$")
+  }
 
   return chars;
 }
@@ -31,6 +51,7 @@ function generatePassword(len, charSet) {
   var password;
   const passLength = len;
   const chars = charSet;
+  console.log(len, charSet);
   return password;
 }
 
