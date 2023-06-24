@@ -3,6 +3,7 @@
 // Pass length must be between 8 and and 128 characters inclusive
 function getPasswordLength() {
   var len = 8;
+  window.alert("Hello")
   return len;
 }
 
@@ -13,8 +14,11 @@ function getCharacters() {
 }
 
 // Generates password by passing in functions
-function generatePassword(len, char) {
-  return;
+function generatePassword(len, charSet) {
+  var password;
+  const passLength = len;
+  const chars = charSet;
+  return password;
 }
 
 // Get references to the #generate element
