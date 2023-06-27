@@ -1,7 +1,13 @@
 // Assignment code here
 // Pass length must be between 8 and and 128 characters inclusive
 function getPasswordLength() {
-  var len = Number(window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", ""));
+  var len = window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", "");
+
+  if (len === null) {
+    return len;
+  } else {
+    len = Number(len);
+  }
 
   while (Number.isNaN(len) || (len < 8 || len > 128) ) {
     
@@ -26,22 +32,22 @@ function getPasswordLength() {
 function getCharacters() {
   var chars = [];
 
-  answer = window.prompt("Would you like to include uppercase characters? [y/n]", "");
+  answer = window.prompt("Would you like to include uppercase characters? Type y if yes: ", "");
   if (answer === 'y') {
     chars.push('A');
   }
 
-  answer = window.prompt("Would you like to include lowercase characters? [y/n]", "");
+  answer = window.prompt("Would you like to include lowercase characters? Type y if yes: ", "");
   if (answer === 'y') {
     chars.push('a');
   }
 
-  answer = window.prompt("Would you like to include numeric characters? [y/n]", "");
+  answer = window.prompt("Would you like to include numeric characters? Type y if yes: ", "");
   if (answer === 'y') {
     chars.push(1);
   }
 
-  answer = window.prompt("Would you like to include special characters? [y/n]", "");
+  answer = window.prompt("Would you like to include special characters? Type y if yes: ", "");
   if (answer === 'y') {
     chars.push("$");
   }
