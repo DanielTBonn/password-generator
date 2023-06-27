@@ -2,16 +2,20 @@
 
 // Pass length must be between 8 and and 128 characters inclusive
 function getPasswordLength() {
-  var len = window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", "");
-  
-  len = Number(len)
+  var len = Number(window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", ""));
+  console.log(typeof len);
+  console.log(len)
+  // len = Number(len)
 
-  if (Number.isNaN(len)) {
-    return;
-  }
 
-  if (len < 8 || len > 128) {
-    return;
+  while (Number.isNaN(len) || (len < 8 || len > 128) ) {
+    if (Number.isNaN(len)) {
+      len = Number(window.prompt("Input must be a number: ", ""));
+    } else if ((len < 8 || len > 128) && (len !== 0)) {
+      len = Number(window.prompt("Number must be between 8 - 128 characters (inclusive): ", ""));
+    } else if (len === null || len === 0) {
+      break;
+    }
   }
 
   return len;
@@ -44,6 +48,8 @@ function getCharacters() {
   return chars;
 }
 
+
+// Generates a random number in the range of the variable passed through it
 function randomIndexGen(range) {
   let num = Math.random() * range;
   num = Math.floor(num);
@@ -89,7 +95,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(getPasswordLength(), getCharacters());
+  var password = generatePassword(getPasswordLength(), ["A", "a", 1, "$"]);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
