@@ -62,7 +62,7 @@ function randomIndexGen(range) {
   return num;
 }
 
-// Generates password by passing in functions
+// Generates password by passing in length and character values
 function generatePassword(len, charSet) {
   var password = "";
   var passString = "";
