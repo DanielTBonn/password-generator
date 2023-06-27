@@ -1,5 +1,4 @@
 // Assignment code here
-
 // Pass length must be between 8 and and 128 characters inclusive
 function getPasswordLength() {
   var len = Number(window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", ""));
@@ -53,7 +52,6 @@ function getCharacters() {
 
   return chars;
 }
-
 
 // Generates a random number in the range of the variable passed through it
 function randomIndexGen(range) {
