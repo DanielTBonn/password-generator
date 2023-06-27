@@ -5,13 +5,19 @@ function getPasswordLength() {
   var len = Number(window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", ""));
 
   while (Number.isNaN(len) || (len < 8 || len > 128) ) {
+    
     if (Number.isNaN(len)) {
-      len = Number(window.prompt("Input must be a number: ", ""));
-    } else if ((len < 8 || len > 128) && (len !== 0)) {
-      len = Number(window.prompt("Number must be between 8 - 128 characters (inclusive): ", ""));
-    } else if (len === null || len === 0) {
-      return null;
+      len = window.prompt("Input must be a number: ", "");
+    } else {
+      len = window.prompt("Number must be between 8 - 128 characters (inclusive): ", "");
     }
+
+    if (len === null) {
+      break;
+    } else {
+      len = Number(len);
+    }
+
   }
 
   return len;
@@ -92,8 +98,6 @@ function generatePassword(len, charSet) {
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
-
-// ["A", "a", 1, "$"]
 
 // Write password to the #password input
 function writePassword() {
