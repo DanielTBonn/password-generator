@@ -10,7 +10,7 @@ function getPasswordLength() {
     } else if ((len < 8 || len > 128) && (len !== 0)) {
       len = Number(window.prompt("Number must be between 8 - 128 characters (inclusive): ", ""));
     } else if (len === null || len === 0) {
-      break;
+      return null;
     }
   }
 
@@ -41,6 +41,10 @@ function getCharacters() {
     chars.push("$");
   }
 
+  if (chars.length === 0) {
+    return null;
+  }
+
   return chars;
 }
 
@@ -54,6 +58,7 @@ function randomIndexGen(range) {
 
 // Generates password by passing in functions
 function generatePassword(len, charSet) {
+  
   var password = "";
   var passString = "";
 
@@ -77,11 +82,12 @@ function generatePassword(len, charSet) {
   if (charSet.includes("$")) {
     passString += specialChars;
   }
-  
+
   for (var i = 0; i < len; i++) {
     var index = randomIndexGen(passString.length);
     password += passString[index];
   }
+
 
   return password;
 }
@@ -89,9 +95,22 @@ function generatePassword(len, charSet) {
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
+// ["A", "a", 1, "$"]
+
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword(getPasswordLength(), ["A", "a", 1, "$"]);
+  var len = getPasswordLength();
+  if (len === null) {
+    return;
+  }
+
+  var charSet = getCharacters();
+  if (charSet === null) {
+    window.alert("Must include at least one characterset.");
+    return;
+  }
+
+  var password = generatePassword(len, charSet);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
