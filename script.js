@@ -3,10 +3,6 @@
 // Pass length must be between 8 and and 128 characters inclusive
 function getPasswordLength() {
   var len = Number(window.prompt("Please enter a password length between 8 - 128 characters (inclusive): ", ""));
-  console.log(typeof len);
-  console.log(len)
-  // len = Number(len)
-
 
   while (Number.isNaN(len) || (len < 8 || len > 128) ) {
     if (Number.isNaN(len)) {
