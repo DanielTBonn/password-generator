@@ -58,7 +58,6 @@ function randomIndexGen(range) {
 
 // Generates password by passing in functions
 function generatePassword(len, charSet) {
-  
   var password = "";
   var passString = "";
 
@@ -88,7 +87,6 @@ function generatePassword(len, charSet) {
     password += passString[index];
   }
 
-
   return password;
 }
 
@@ -114,7 +112,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
