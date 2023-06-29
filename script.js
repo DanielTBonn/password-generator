@@ -61,8 +61,7 @@ function getCharacters() {
 
 // Generates a random number in the range of the variable passed through it
 function randomIndexGen(range) {
-  let num = Math.random() * range;
-  num = Math.floor(num);
+  let num = Math.floor(Math.random() * range);
   return num;
 }
 
